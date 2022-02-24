@@ -17,10 +17,10 @@ type DistanceInfo struct {
 
 // GetMaxDistance 给定二叉树头节点，求该二叉树的最大距离
 func (head *Node) GetMaxDistance() int {
-	return Process2(head).MaxDistance
+	return Process(head).MaxDistance
 }
 
-func Process2(node *Node) *DistanceInfo {
+func Process(node *Node) *DistanceInfo {
 	// base case
 	if node == nil {
 		return &DistanceInfo{
@@ -30,9 +30,9 @@ func Process2(node *Node) *DistanceInfo {
 	}
 
 	// 左树信息
-	leftInfo := Process2(node.Left)
+	leftInfo := Process(node.Left)
 	// 右树信息
-	rightInfo := Process2(node.Right)
+	rightInfo := Process(node.Right)
 	// 用左右树的信息，加工当前节点自身的info
 	// 自身的高度是，左右较大的高度加上自身节点高度1
 	curHeight := int(math.Max(float64(leftInfo.Height), float64(rightInfo.Height)))

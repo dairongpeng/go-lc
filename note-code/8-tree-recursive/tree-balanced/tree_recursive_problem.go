@@ -1,12 +1,14 @@
 package main
 
-import "math"
+import (
+	"math"
+)
 
-//type Node struct {
-//	Val int
-//	Left *Node
-//	Right *Node
-//}
+type Node struct {
+	Val   int
+	Left  *Node
+	Right *Node
+}
 
 // BalanceInfo 表示递归过程中需要收集每个节点的信息
 type BalanceInfo struct {
