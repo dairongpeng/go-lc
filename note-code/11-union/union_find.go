@@ -52,6 +52,7 @@ func (set *UnionSet) FindFather(cur *UNode) *UNode {
 	for len(path) != 0 {
 		for i := len(path) - 1; i >= 0; i-- {
 			set.RootFatherMap[path[i]] = cur
+			path = path[:len(path)-1] // 模拟栈的弹出
 		}
 	}
 	return cur
